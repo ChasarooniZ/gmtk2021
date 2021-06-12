@@ -16,20 +16,20 @@ func _physics_process(_delta):
 	var motion = Vector2()
 
 	# Your player
-	if is_network_master():
-		for usr in get_node("Users").get_children():
-			motion += usr.motion
+	#if is_network_master():
+	for usr in get_node("Users").get_children():
+		motion += usr.motion
 
 
-		if stunned:
-			motion = Vector2()
+	if stunned:
+		motion = Vector2()
 
-		rset("puppet_motion", motion)
-		rset("puppet_pos", position)
+	rset("puppet_motion", motion)
+	rset("puppet_pos", position)
 	# Someone else's player
-	else:
-		position = puppet_pos
-		motion = puppet_motion
+	#else:
+	#	position = puppet_pos
+	#	motion = puppet_motion
 
 	var new_anim = "[stop]"
 	if motion.y < 0:

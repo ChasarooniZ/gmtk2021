@@ -28,13 +28,17 @@ func set_user_name(new_name):
 func _physics_process(_delta):
 	var motionNew = Vector2()
 	if is_network_master():
+		print("in network master")
 		if Input.is_action_pressed("move_left"):
+			print("move left")
 			motionNew += Vector2(-3, 0)
 		if Input.is_action_pressed("move_right"):
 			motionNew += Vector2(3, 0)
 		if Input.is_action_pressed("move_up"):
+			print("move up")
 			motionNew += Vector2(0, -3)
 		if Input.is_action_pressed("move_down"):
+			print("move down")
 			motionNew += Vector2(0, 3)
 		motion = motionNew
 
