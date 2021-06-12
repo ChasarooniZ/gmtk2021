@@ -24,9 +24,9 @@ func _physics_process(_delta):
 	if stunned:
 		motion = Vector2()
 
-	if is_network_master():
-		rset("puppet_motion", motion)
-		rset("puppet_pos", position)
+	#if is_network_master():
+	#	rset("puppet_motion", motion)
+	#	rset("puppet_pos", position)
 	# Someone else's player
 	else:
 		position = puppet_pos
