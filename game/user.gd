@@ -11,7 +11,7 @@ var bomb_index = 0
 sync func setup_bomb(bomb_name, pos, by_who):
 	var bomb = preload("res://bomb.tscn").instance()
 	bomb.set_name(bomb_name) # Ensure unique name for the bomb
-	bomb.position = pos
+	bomb.position = get_parent().get_parent().position
 	bomb.from_player = by_who
 	# No need to set network master to bomb, will be owned by server by default
 	get_node("../../../..").add_child(bomb)
