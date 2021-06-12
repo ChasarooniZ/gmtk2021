@@ -55,15 +55,15 @@ func _physics_process(_delta):
 		puppet_pos = position # To avoid jitter
 
 
-puppet func stun():
-	stunned = true
+puppet func combine(_by_who):
+	var killer = get_parent().find_node(_by_who))
+	killer.get_node("Users").add_children(get_node("Users").get_children())
+	queue_free()
 
 
 master func exploded(_by_who):
-	if stunned:
-		return
-	rpc("stun") # Stun puppets
-	stun() # Stun master - could use sync to do both at once
+	rpc("combine", _by_who) # Stun puppets
+	combine(_by_who) # Stun master - could use sync to do both at once
 
 
 func set_player_name(new_name):
