@@ -47,6 +47,8 @@ func _physics_process(_delta):
 		var dist = 3
 		if !(Input.is_action_pressed("boost") && cooldown <= 0):
 			dist = dist/2
+		else:
+			dist = 3
 		if Input.is_action_pressed("move_left"):
 			motionNew += Vector2(-1, 0)
 		if Input.is_action_pressed("move_right"):
