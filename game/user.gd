@@ -44,7 +44,7 @@ func _physics_process(_delta):
 		
 		var m = get_global_mouse_position()
 		var aim_speed = deg2rad(5)
-		var ang = get_angle_to(m) + deg2rad(90)
+		var ang = get_angle_to(m)
 		if ang > 0 + aim_speed:
 			rotation += aim_speed
 		elif ang < 0 - aim_speed:
