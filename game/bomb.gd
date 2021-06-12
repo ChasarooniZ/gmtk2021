@@ -2,7 +2,7 @@ extends Area2D
 
 var in_area = []
 var from_player
-var palyer
+var player
 
 # Called from the animation.
 func explode():
