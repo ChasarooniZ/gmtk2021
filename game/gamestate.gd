@@ -6,7 +6,7 @@ extends Node
 const DEFAULT_PORT = 8080
 
 # Max number of players.
-const MAX_PEERS = 12
+const MAX_PEERS = 32
 
 var peer = null
 
@@ -81,14 +81,29 @@ remote func pre_start_game(spawn_points):
 	get_tree().get_root().get_node("Lobby").hide()
 
 	var player_scene = load("res://player.tscn")
+	var user_scene = load("res://user.tscn")
 
 	for p_id in spawn_points:
 		var spawn_pos = world.get_node("SpawnPoints/" + str(spawn_points[p_id])).position
 		var player = player_scene.instance()
 
+		#OUR CODE HERE FOR USERS
+		var user = user_scene.instance()
+		user.set_name(str(p_id)) # Use unique ID as node name.
+		user.set_network_master(p_id) #set unique id as master.
+
+		if p_id == get_tree().get_network_unique_id():
+			# If node for this peer id, set name.
+			user.set_user_name(player_name)
+		else:
+			# Otherwise set name from peer.
+			user.set_user_name(players[p_id]) #TODO FIx me
+
+		#END USER CODE
+
 		player.set_name(str(p_id)) # Use unique ID as node name.
 		player.position=spawn_pos
-		player.set_network_master(p_id) #set unique id as master.
+		#player.set_network_master(p_id) #set unique id as master.
 
 		if p_id == get_tree().get_network_unique_id():
 			# If node for this peer id, set name.
@@ -97,7 +112,7 @@ remote func pre_start_game(spawn_points):
 			# Otherwise set name from peer.
 			player.set_player_name(players[p_id])
 
-		world.get_node("Players").add_child(player)
+		world.get_node("Players").add_child(player).get_node('Users').add_child(user)
 
 	# Set up score.
 	world.get_node("Score").add_player(get_tree().get_network_unique_id(), player_name)

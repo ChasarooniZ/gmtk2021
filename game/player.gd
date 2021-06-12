@@ -7,15 +7,6 @@ puppet var puppet_motion = Vector2()
 
 export var stunned = false
 
-# Use sync because it will be called everywhere
-sync func setup_bomb(bomb_name, pos, by_who):
-	var bomb = preload("res://bomb.tscn").instance()
-	bomb.set_name(bomb_name) # Ensure unique name for the bomb
-	bomb.position = pos
-	bomb.from_player = by_who
-	# No need to set network master to bomb, will be owned by server by default
-	get_node("../..").add_child(bomb)
-
 var current_anim = ""
 var prev_bombing = false
 var bomb_index = 0
@@ -24,31 +15,18 @@ var bomb_index = 0
 func _physics_process(_delta):
 	var motion = Vector2()
 
+	# Your player
 	if is_network_master():
-		if Input.is_action_pressed("move_left"):
-			motion += Vector2(-3, 0)
-		if Input.is_action_pressed("move_right"):
-			motion += Vector2(3, 0)
-		if Input.is_action_pressed("move_up"):
-			motion += Vector2(0, -3)
-		if Input.is_action_pressed("move_down"):
-			motion += Vector2(0, 3)
+		for usr in get_node("Users").get_children():
+			motion += usr.motion
 
-		var bombing = Input.is_action_pressed("set_bomb")
 
 		if stunned:
-			bombing = false
 			motion = Vector2()
-
-		if bombing and not prev_bombing:
-			var bomb_name = get_name() + str(bomb_index)
-			var bomb_pos = position
-			rpc("setup_bomb", bomb_name, bomb_pos, get_tree().get_network_unique_id())
-
-		prev_bombing = bombing
 
 		rset("puppet_motion", motion)
 		rset("puppet_pos", position)
+	# Someone else's player
 	else:
 		position = puppet_pos
 		motion = puppet_motion
