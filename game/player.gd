@@ -59,7 +59,9 @@ puppet func combine(_by_who, path):
 	var killer = get_node(path)
 	for usr in get_node("Users").get_children():
 		killer.get_node("Users").add_child(usr)
-	queue_free()
+	for usr in get_node("Users").get_children():
+		get_node("Users").remove_child(usr)
+	#queue_free()
 
 
 master func exploded(_by_who, path):
