@@ -63,7 +63,7 @@ puppet func combine(_by_who, player):
 
 master func exploded(_by_who, player):
 	rpc("combine", _by_who, player) # Stun puppets
-	combine(_by_who) # Stun master - could use sync to do both at once
+	combine(_by_who, player) # Stun master - could use sync to do both at once
 
 
 func set_player_name(new_name):
