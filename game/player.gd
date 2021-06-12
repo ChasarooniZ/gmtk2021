@@ -32,7 +32,7 @@ func _physics_process(_delta):
 		position = puppet_pos
 		motion = puppet_motion
 
-	var new_anim = "[stop]"
+	var new_anim = "standing"
 	if motion.y < 0:
 		new_anim = "walk_up"
 	elif motion.y > 0:
