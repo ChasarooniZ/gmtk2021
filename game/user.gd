@@ -4,6 +4,7 @@ extends Node2D
 # Declare member variables here. Examples:
 # var a = 2
 puppet var puppet_motion = Vector2()
+puppet var puppet_rotation = Vector2()
 var motion = Vector2()
 var prev_bombing = false
 var bomb_index = 0
@@ -39,6 +40,16 @@ func _physics_process(_delta):
 		if Input.is_action_pressed("move_down"):
 			motionNew += Vector2(0, 3)
 		motion = motionNew
+		
+		
+		var m = get_global_mouse_position()
+		var aim_speed = deg2rad(5)
+		var ang = get_angle_to(m) + deg2rad(90)
+		if ang > 0 + aim_speed:
+			rotation += aim_speed
+		elif ang < 0 - aim_speed:
+			rotation -= aim_speed
+		
 
 		var bombing = Input.is_action_pressed("set_bomb")
 
@@ -49,9 +60,11 @@ func _physics_process(_delta):
 		prev_bombing = bombing
 
 		rset("puppet_motion", motion)
+		rset("puppet_rotation", rotation)
 
 	else:
 		motion = puppet_motion
+		rotation = puppet_rotation
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
