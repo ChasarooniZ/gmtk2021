@@ -25,10 +25,9 @@ sync func setup_bomb(bomb_name, pos, by_who, path):
 
 #Used to bosot based on the boost times etc.
 func boost():
-	charge_strength
 	#creates vector from current global origin to mosue global position .normalized() and then multiply by charge strength
 	var movement = Vector2(cos(rotation), sin(rotation))
-	
+	motion += movement*charge_strength
 	
 
 # Called when the node enters the scene tree for the first time.
