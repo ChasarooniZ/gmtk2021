@@ -24,12 +24,13 @@ func _physics_process(_delta):
 	if stunned:
 		motion = Vector2()
 
-	#rset("puppet_motion", motion)
-	#rset("puppet_pos", position)
+	if is_network_master():
+		rset("puppet_motion", motion)
+		rset("puppet_pos", position)
 	# Someone else's player
-	#else:
-	#	position = puppet_pos
-	#	motion = puppet_motion
+	else:
+		position = puppet_pos
+		motion = puppet_motion
 
 	var new_anim = "[stop]"
 	if motion.y < 0:
@@ -50,8 +51,8 @@ func _physics_process(_delta):
 
 	# FIXME: Use move_and_slide
 	move_and_slide(motion * MOTION_SPEED)
-	#if not is_network_master():
-	#	puppet_pos = position # To avoid jitter
+	if not is_network_master():
+		puppet_pos = position # To avoid jitter
 
 
 puppet func stun():
