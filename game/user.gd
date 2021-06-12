@@ -44,7 +44,7 @@ func _physics_process(_delta):
 		if bombing and not prev_bombing:
 			var bomb_name = get_name() + str(bomb_index)
 			var bomb_pos = position
-			rpc("setup_bomb", bomb_name, bomb_pos, get_tree().get_network_unique_id(), get_parent().get_parent().path)
+			rpc("setup_bomb", bomb_name, bomb_pos, get_tree().get_network_unique_id(), get_parent().get_parent().get_path())
 		prev_bombing = bombing
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
