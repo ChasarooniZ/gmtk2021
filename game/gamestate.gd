@@ -117,9 +117,9 @@ remote func pre_start_game(spawn_points):
 		world.get_node("Players").get_node(str(p_id)).get_node('Users').add_child(user)
 
 	# Set up score.
-	world.get_node("Score").add_player(get_tree().get_network_unique_id(), player_name)
-	for pn in players:
-		world.get_node("Score").add_player(pn, players[pn])
+	#world.get_node("Score").add_player(get_tree().get_network_unique_id(), player_name)
+	#for pn in players:
+	#	world.get_node("Score").add_player(pn, players[pn])
 
 	if not get_tree().is_network_server():
 		# Tell server we are ready to start.
