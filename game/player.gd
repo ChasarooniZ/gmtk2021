@@ -61,7 +61,7 @@ puppet func combine(_by_who, path):
 		self.get_node("Users").remove_child(usr)
 		killer.get_node("Users").add_child(usr)
 		usr.set_owner(killer.get_node("Users"))
-	#queue_free()
+	queue_free()
 	
 
 
