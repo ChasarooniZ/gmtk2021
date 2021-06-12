@@ -28,9 +28,9 @@ func _physics_process(_delta):
 	#	rset("puppet_motion", motion)
 	#	rset("puppet_pos", position)
 	# Someone else's player
-	else:
-		position = puppet_pos
-		motion = puppet_motion
+	#else:
+	position = puppet_pos
+	motion = puppet_motion
 
 	var new_anim = "[stop]"
 	if motion.y < 0:
