@@ -50,8 +50,8 @@ func _physics_process(_delta):
 
 		rset("puppet_motion", motion)
 
-		else:
-			motion = puppet_motion
+	else:
+		motion = puppet_motion
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
