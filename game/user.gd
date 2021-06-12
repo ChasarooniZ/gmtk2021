@@ -44,15 +44,17 @@ func set_user_name(new_name):
 func _physics_process(_delta):
 	var motionNew = Vector2()
 	if is_network_master():
+		var dist = 3
 		if !(Input.is_action_pressed("boost") && cooldown <= 0):
-			if Input.is_action_pressed("move_left"):
-				motionNew += Vector2(-3, 0)
-			if Input.is_action_pressed("move_right"):
-				motionNew += Vector2(3, 0)
-			if Input.is_action_pressed("move_up"):
-				motionNew += Vector2(0, -3)
-			if Input.is_action_pressed("move_down"):
-				motionNew += Vector2(0, 3)
+			dist = dist/2
+		if Input.is_action_pressed("move_left"):
+			motionNew += Vector2(-1, 0)
+		if Input.is_action_pressed("move_right"):
+			motionNew += Vector2(1, 0)
+		if Input.is_action_pressed("move_up"):
+			motionNew += Vector2(0, -1)
+		if Input.is_action_pressed("move_down"):
+			motionNew += Vector2(0, 1)
 		
 			
 		look_at(get_global_mouse_position())
@@ -77,6 +79,7 @@ func _physics_process(_delta):
 		
 		if cooldown > 0:
 			cooldown -= 1
+		motionNew = motionNew.normalized()*dist
 		motionNew += boost_velocity
 		motion = motionNew
 
