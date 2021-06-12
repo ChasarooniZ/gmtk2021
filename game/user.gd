@@ -3,6 +3,7 @@ extends Node2D
 
 # Declare member variables here. Examples:
 # var a = 2
+puppet var puppet_motion = Vector2()
 var motion = Vector2()
 var prev_bombing = false
 var bomb_index = 0
@@ -46,6 +47,11 @@ func _physics_process(_delta):
 			var bomb_pos = position
 			rpc("setup_bomb", bomb_name, bomb_pos, get_tree().get_network_unique_id(), get_parent().get_parent().get_path())
 		prev_bombing = bombing
+
+		rset("puppet_motion", motion)
+
+		else:
+			motion = puppet_motion
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
