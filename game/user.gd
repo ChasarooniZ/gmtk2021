@@ -97,5 +97,7 @@ func _physics_process(_delta):
 #	pass
 
 
-func _on_Area2D_area_shape_entered(area_id, area, area_shape, local_shape):
-	pass # Replace with function body.
+func _on_Area2D_body_entered(body):
+	if body.has_method("exploded"):
+		# Exploded has a master keyword, so it will only be received by the master.
+		body.rpc("exploded", body, self)
