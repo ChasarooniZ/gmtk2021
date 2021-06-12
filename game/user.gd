@@ -23,7 +23,7 @@ func _ready():
 
 # Change to something that is hidden
 func set_user_name(new_name):
-	get_node("label").set_text(new_name)
+	get_node("Label").set_text(new_name)
 
 func _physics_process(_delta):
 	var motionNew = Vector2()
