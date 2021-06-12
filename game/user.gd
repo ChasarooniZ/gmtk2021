@@ -95,3 +95,7 @@ func _physics_process(_delta):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _on_Area2D_area_shape_entered(area_id, area, area_shape, local_shape):
+	pass # Replace with function body.
