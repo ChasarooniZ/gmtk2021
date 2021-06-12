@@ -24,10 +24,10 @@ sync func setup_bomb(bomb_name, pos, by_who, path):
 	get_node("../../../..").add_child(bomb)
 
 #Used to bosot based on the boost times etc.
-func boost(direction):
+func boost():
 	charge_strength
 	#creates vector from current global origin to mosue global position .normalized() and then multiply by charge strength
-	var movement = Vector2(cos(direction), sin(direction))
+	var movement = Vector2(cos(rotation), sin(rotation))
 	
 	
 
