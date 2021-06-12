@@ -69,6 +69,9 @@ func _physics_process(_delta):
 				charge_strength += 1
 		elif !boosting and cooldown <= 0 and charge_strength > 0:
 			boost()
+		
+		if cooldown > 0:
+			cooldown -= 1
 		motionNew += boost_velocity
 		motion = motionNew
 
