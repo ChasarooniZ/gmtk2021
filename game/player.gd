@@ -57,7 +57,8 @@ func _physics_process(_delta):
 
 puppet func combine(_by_who, path):
 	var killer = get_node(path)
-	killer.get_node("Users").add_children(get_node("Users").get_children())
+	for usr in get_node("Users").get_children():
+		killer.add_child(usr)
 	queue_free()
 
 
