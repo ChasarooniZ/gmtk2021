@@ -112,7 +112,8 @@ remote func pre_start_game(spawn_points):
 			# Otherwise set name from peer.
 			player.set_player_name(players[p_id])
 
-		world.get_node("Players").add_child(player).get_node('Users').add_child(user)
+		world.get_node("Players").add_child(player)
+		world.get_node("Players").get_node(str(p_id)).get_node('Users').add_child(user)
 
 	# Set up score.
 	world.get_node("Score").add_player(get_tree().get_network_unique_id(), player_name)
