@@ -12,6 +12,7 @@ var bomb_index = 0
 var cooldown = 0
 var charge_strength = 0
 var charge_cap = 10
+var boost_velocity = Vector2()
 
 # Use sync because it will be called everywhere
 sync func setup_bomb(bomb_name, pos, by_who, path):
@@ -27,7 +28,8 @@ sync func setup_bomb(bomb_name, pos, by_who, path):
 func boost():
 	#creates vector from current global origin to mosue global position .normalized() and then multiply by charge strength
 	var movement = Vector2(cos(rotation), sin(rotation))
-	motion += movement*charge_strength
+	boost_velocity += movement*charge_strength
+	cooldown = 200
 	
 
 # Called when the node enters the scene tree for the first time.
@@ -41,36 +43,34 @@ func set_user_name(new_name):
 func _physics_process(_delta):
 	var motionNew = Vector2()
 	if is_network_master():
-		if Input.is_action_pressed("move_left"):
-			motionNew += Vector2(-3, 0)
-		if Input.is_action_pressed("move_right"):
-			motionNew += Vector2(3, 0)
-		if Input.is_action_pressed("move_up"):
-			motionNew += Vector2(0, -3)
-		if Input.is_action_pressed("move_down"):
-			motionNew += Vector2(0, 3)
-		motion = motionNew
+		if (!Input.is_action_pressed("boost")):
+			if Input.is_action_pressed("move_left"):
+				motionNew += Vector2(-3, 0)
+			if Input.is_action_pressed("move_right"):
+				motionNew += Vector2(3, 0)
+			if Input.is_action_pressed("move_up"):
+				motionNew += Vector2(0, -3)
+			if Input.is_action_pressed("move_down"):
+				motionNew += Vector2(0, 3)
 		
-		
-		#Rotation towards mouse code
-		#var m = get_global_mouse_position()
-		#var aim_speed = deg2rad(5)
-		#var ang = get_angle_to(m)
-		#if ang > 0 + aim_speed:
-		#	rotation += aim_speed
-		#elif ang < 0 - aim_speed:
-		#	rotation -= aim_speed
 			
 		look_at(get_global_mouse_position())
 		
 
 		var boosting = Input.is_action_pressed("boost")
 
+		if boost_velocity > 0.5:
+			boost_velocity *= 0.8
+		elif boost_velocity > 0:
+			boost_velocity = 0
+
 		if boosting and cooldown <= 0:
 			if charge_strength <= 10:
 				charge_strength += 1
 		elif !boosting and cooldown <= 0 and charge_strength > 0:
 			boost()
+		motionNew += boost_velocity
+		motion = motionNew
 
 		rset("puppet_motion", motion)
 		rset("puppet_rotation", rotation)
