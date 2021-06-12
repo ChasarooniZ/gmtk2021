@@ -30,6 +30,7 @@ func boost():
 	var movement = Vector2(cos(rotation), sin(rotation))
 	boost_velocity += movement*charge_strength
 	cooldown = 200
+	charge_strength = 0
 	
 
 # Called when the node enters the scene tree for the first time.
