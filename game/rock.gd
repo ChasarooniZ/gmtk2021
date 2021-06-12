@@ -6,7 +6,7 @@ puppet func do_explosion():
 
 
 # Received by owner of the rock
-master func exploded(by_who):
+master func exploded(by_who, player):
 	rpc("do_explosion") # Re-sent to puppet rocks
 	$"../../Score".rpc("increase_score", by_who)
 	do_explosion()
