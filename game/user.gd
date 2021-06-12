@@ -9,6 +9,10 @@ var motion = Vector2()
 var prev_bombing = false
 var bomb_index = 0
 
+var charge_stage = 0
+var charge_strength = 0
+var charge_cap = 10
+
 # Use sync because it will be called everywhere
 sync func setup_bomb(bomb_name, pos, by_who, path):
 	var bomb = preload("res://bomb.tscn").instance()
