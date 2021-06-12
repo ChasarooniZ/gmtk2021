@@ -60,11 +60,11 @@ func _physics_process(_delta):
 		prev_bombing = bombing
 
 		rset("puppet_motion", motion)
-		rset("puppet_rotation", rotation)
+		#rset("puppet_rotation", rotation)
 
 	else:
 		motion = puppet_motion
-		rotation = puppet_rotation
+		#rotation = puppet_rotation
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
