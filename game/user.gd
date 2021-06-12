@@ -54,13 +54,15 @@ func _physics_process(_delta):
 		
 		
 		#Rotation towards mouse code
-		var m = get_global_mouse_position()
-		var aim_speed = deg2rad(5)
-		var ang = get_angle_to(m)
-		if ang > 0 + aim_speed:
-			rotation += aim_speed
-		elif ang < 0 - aim_speed:
-			rotation -= aim_speed
+		#var m = get_global_mouse_position()
+		#var aim_speed = deg2rad(5)
+		#var ang = get_angle_to(m)
+		#if ang > 0 + aim_speed:
+		#	rotation += aim_speed
+		#elif ang < 0 - aim_speed:
+		#	rotation -= aim_speed
+			
+		look_at(get_global_mouse_position())
 		
 
 		var boosting = Input.is_action_pressed("boost")
