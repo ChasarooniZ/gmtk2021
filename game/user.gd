@@ -45,7 +45,7 @@ func _physics_process(_delta):
 	var motionNew = Vector2()
 	if is_network_master():
 		var dist = 3
-		if !(Input.is_action_pressed("boost") && cooldown <= 0):
+		if (Input.is_action_pressed("boost") && cooldown <= 0):
 			dist = dist/2
 		else:
 			dist = 3
