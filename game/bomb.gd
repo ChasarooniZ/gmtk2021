@@ -2,7 +2,7 @@ extends Area2D
 
 var in_area = []
 var from_player
-var player
+var path
 
 # Called from the animation.
 func explode():
@@ -12,7 +12,7 @@ func explode():
 	for p in in_area:
 		if p.has_method("exploded"):
 			# Exploded has a master keyword, so it will only be received by the master.
-			p.rpc("exploded", from_player, player)
+			p.rpc("exploded", from_player, path)
 
 
 func done():
