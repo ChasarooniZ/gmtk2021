@@ -8,11 +8,12 @@ var prev_bombing = false
 var bomb_index = 0
 
 # Use sync because it will be called everywhere
-sync func setup_bomb(bomb_name, pos, by_who):
+sync func setup_bomb(bomb_name, pos, by_who, player):
 	var bomb = preload("res://bomb.tscn").instance()
 	bomb.set_name(bomb_name) # Ensure unique name for the bomb
 	bomb.position = get_parent().get_parent().position
 	bomb.from_player = by_who
+	bomb.player = player
 	# No need to set network master to bomb, will be owned by server by default
 	get_node("../../../..").add_child(bomb)
 
@@ -43,7 +44,7 @@ func _physics_process(_delta):
 		if bombing and not prev_bombing:
 			var bomb_name = get_name() + str(bomb_index)
 			var bomb_pos = position
-			rpc("setup_bomb", bomb_name, bomb_pos, get_tree().get_network_unique_id())
+			rpc("setup_bomb", bomb_name, bomb_pos, get_tree().get_network_unique_id(), get_parent().get_parent().name)
 		prev_bombing = bombing
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
