@@ -170,4 +170,4 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="users" type="Node2D" parent="."]
+[node name="Users" type="Node2D" parent="."]
