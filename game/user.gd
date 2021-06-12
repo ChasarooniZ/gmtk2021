@@ -43,7 +43,7 @@ func set_user_name(new_name):
 func _physics_process(_delta):
 	var motionNew = Vector2()
 	if is_network_master():
-		if (!Input.is_action_pressed("boost")):
+		if !(Input.is_action_pressed("boost") && cooldown <= 0):
 			if Input.is_action_pressed("move_left"):
 				motionNew += Vector2(-3, 0)
 			if Input.is_action_pressed("move_right"):
@@ -67,7 +67,11 @@ func _physics_process(_delta):
 		if boosting and cooldown <= 0:
 			if charge_strength <= 10:
 				charge_strength += 1
+				#TODO Show it is charging
+			#else:
+				#TODO Show that it has maxed strength
 		elif !boosting and cooldown <= 0 and charge_strength > 0:
+			#TODO SHOW RELEASED
 			boost()
 		
 		if cooldown > 0:
