@@ -11,7 +11,7 @@ var bomb_index = 0
 
 var cooldown = 0
 var charge_strength = 0
-var charge_cap = 10
+const charge_cap = 10
 var boost_velocity = Vector2()
 
 # Use sync because it will be called everywhere
@@ -65,7 +65,7 @@ func _physics_process(_delta):
 			boost_velocity = Vector2()
 
 		if boosting and cooldown <= 0:
-			if charge_strength <= 10:
+			if charge_strength <= charge_cap:
 				charge_strength += 1
 				#TODO Show it is charging
 			#else:
