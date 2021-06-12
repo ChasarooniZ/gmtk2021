@@ -9,7 +9,7 @@ var motion = Vector2()
 var prev_bombing = false
 var bomb_index = 0
 
-var charge_stage = 0
+var cooldown = 0
 var charge_strength = 0
 var charge_cap = 10
 
@@ -23,6 +23,13 @@ sync func setup_bomb(bomb_name, pos, by_who, path):
 	# No need to set network master to bomb, will be owned by server by default
 	get_node("../../../..").add_child(bomb)
 
+#Used to bosot based on the boost times etc.
+func boost(direction):
+	charge_strength
+	#creates vector from current global origin to mosue global position .normalized() and then multiply by charge strength
+	var movement = Vector2(cos(direction), sin(direction))
+	
+	
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -56,13 +63,13 @@ func _physics_process(_delta):
 			rotation -= aim_speed
 		
 
-		var bombing = Input.is_action_pressed("set_bomb")
+		var boosting = Input.is_action_pressed("boost")
 
-		if bombing and not prev_bombing:
-			var bomb_name = get_name() + str(bomb_index)
-			var bomb_pos = position
-			rpc("setup_bomb", bomb_name, bomb_pos, get_tree().get_network_unique_id(), get_parent().get_parent().get_path())
-		prev_bombing = bombing
+		if boosting and cooldown <= 0:
+			if charge_strength <= 10:
+				charge_strength += 1
+		elif !boosting and cooldown <= 0 and charge_strength > 0:
+			boost()
 
 		rset("puppet_motion", motion)
 		rset("puppet_rotation", rotation)
