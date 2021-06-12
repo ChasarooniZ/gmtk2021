@@ -59,10 +59,10 @@ func _physics_process(_delta):
 
 		var boosting = Input.is_action_pressed("boost")
 
-		if boost_velocity > 0.5:
+		if boost_velocity.length() > 0.5:
 			boost_velocity *= 0.8
-		elif boost_velocity > 0:
-			boost_velocity = 0
+		elif boost_velocity.length() > 0:
+			boost_velocity = Vector2()
 
 		if boosting and cooldown <= 0:
 			if charge_strength <= 10:
