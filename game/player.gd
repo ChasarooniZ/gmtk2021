@@ -49,7 +49,8 @@ func _physics_process(_delta):
 	#	current_anim = new_anim
 	#	get_node("anim").play(current_anim)
 	if (get_parent().get_child_count() == 1):
-			gamestate.end_game()
+		$"../../Winner".set_text("THE WINNER IS:\n" + $label.get_text())
+		$"../../Winner".show()
 
 	# FIXME: Use move_and_slide
 	move_and_slide(motion * MOTION_SPEED)

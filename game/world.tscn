@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://Winner.gd" type="Script" id=2]
+[ext_resource path="res://montserrat.otf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 44
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 44
+font_data = ExtResource( 3 )
 
 [node name="World" type="Node2D"]
 
@@ -58,3 +68,35 @@ position = Vector2( 936, 72 )
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2( 512, 300 )
 current = true
+
+[node name="Winner" type="Label" parent="."]
+margin_left = 331.116
+margin_top = 190.911
+margin_right = 690.116
+margin_bottom = 303.911
+size_flags_horizontal = 2
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+custom_constants/shadow_as_outline = 1
+text = "THE WINNER IS:
+YOU"
+align = 1
+valign = 1
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ExitGame" type="Button" parent="Winner"]
+margin_left = 55.8644
+margin_top = 133.705
+margin_right = 320.864
+margin_bottom = 194.705
+size_flags_horizontal = 2
+size_flags_vertical = 2
+custom_fonts/font = SubResource( 2 )
+text = "EXIT GAME"
+
+[connection signal="pressed" from="Winner/ExitGame" to="Winner" method="_on_ExitGame_pressed"]
