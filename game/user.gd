@@ -98,7 +98,7 @@ func _physics_process(_delta):
 
 
 func _on_Area2D_body_entered(body):
-	if body.has_method("exploded"):
+	if body.has_method("exploded") && boost_velocity > 0:
 		# Exploded has a master keyword, so it will only be received by the master.
 		print("path", self.get_parent().get_parent().get_path())
 		body.rpc("exploded", body, self.get_parent().get_parent().get_path())
