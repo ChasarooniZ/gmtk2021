@@ -1,10 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://lobby.gd" type="Script" id=1]
 [ext_resource path="res://click3.ogg" type="AudioStream" id=2]
 [ext_resource path="res://click4.ogg" type="AudioStream" id=3]
-[ext_resource path="res://Weapon_07.png" type="Texture" id=4]
-[ext_resource path="res://Roomba.png" type="Texture" id=5]
 
 [node name="Lobby" type="Control"]
 anchor_right = 1.0
@@ -189,29 +187,6 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Weapon_07" type="Sprite" parent="."]
-position = Vector2( 259.391, 43.5109 )
-rotation = 0.837758
-scale = Vector2( 2.23757, 2.23757 )
-texture = ExtResource( 4 )
-offset = Vector2( -14.0436, 12.0338 )
-
-[node name="Weapon_08" type="Sprite" parent="."]
-position = Vector2( 700.639, 27.5562 )
-rotation = -2.32652
-scale = Vector2( 2.23757, 2.23757 )
-texture = ExtResource( 4 )
-offset = Vector2( -14.0436, 12.0338 )
-
-[node name="Roomba" type="Sprite" parent="."]
-position = Vector2( 259.391, 43.5109 )
-texture = ExtResource( 5 )
-offset = Vector2( -100.794, -5.73042 )
-
-[node name="Roomba" type="Sprite" parent="Roomba"]
-position = Vector2( 548.972, -10.2751 )
-texture = ExtResource( 5 )
 
 [connection signal="pressed" from="Players/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Players/FindPublicIP" to="." method="_on_find_public_ip_pressed"]
