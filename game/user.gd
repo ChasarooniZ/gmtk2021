@@ -46,11 +46,11 @@ func set_user_name(new_name):
 func _physics_process(_delta):
 	var motionNew = Vector2()
 	if is_network_master():
-		var dist = 3
+		var dist = 5
 		if (Input.is_action_pressed("boost") && cooldown <= 0):
 			dist = dist/2
 		else:
-			dist = 3
+			dist = 5
 		if Input.is_action_pressed("move_left"):
 			motionNew += Vector2(-1, 0)
 		if Input.is_action_pressed("move_right"):
