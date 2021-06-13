@@ -93,7 +93,7 @@ func _physics_process(_delta):
 			#TODO SHOW RELEASED
 			boost()
 		
-		if cooldown > 0:
+		if cooldown >= 0:
 			cooldown -= 1
 		motionNew = motionNew.normalized()*dist
 		motionNew += boost_velocity
