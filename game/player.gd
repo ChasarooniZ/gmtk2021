@@ -62,7 +62,7 @@ puppet func combine(_by_who, path):
 			self.get_node("Users").remove_child(usr)
 			killer.get_node("Users").add_child(usr)
 			var killerName = killer.get_node("label").get_text()
-			killer.get_node("label").set_text(self.get_node("label").get_text() + killerName)
+			killer.get_node("label").set_text(killerName + self.get_node("label").get_text())
 			usr.set_owner(killer.get_node("Users"))
 		queue_free()
 	
