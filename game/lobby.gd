@@ -16,6 +16,7 @@ func _ready():
 
 
 func _on_host_pressed():
+	$Connect/buttonpress.play()
 	if $Connect/Name.text == "":
 		$Connect/ErrorLabel.text = "Invalid name!"
 		return
@@ -30,6 +31,7 @@ func _on_host_pressed():
 
 
 func _on_join_pressed():
+	$Connect/buttonpress.play()
 	if $Connect/Name.text == "":
 		$Connect/ErrorLabel.text = "Invalid name!"
 		return
@@ -85,6 +87,7 @@ func refresh_lobby():
 
 
 func _on_start_pressed():
+	$Connect/buttonpress2.play()
 	gamestate.begin_game()
 
 

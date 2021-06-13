@@ -28,12 +28,12 @@ shape = SubResource( 1 )
 one_way_collision = true
 
 [node name="outline" type="Polygon2D" parent="."]
-position = Vector2( -0.0525551, 0 )
+position = Vector2( -1.61506, -0.625 )
 color = Color( 0.501961, 0.0352941, 0.568627, 1 )
-polygon = PoolVector2Array( 19.9901, -3.9375, 27.3026, -4.9375, 44.5526, -4.8125, 49.8651, 0.75, 46.2401, 4.25, 27.2401, 4.1875, 19.9276, 3.1875, 16.3651, -0.125 )
+polygon = PoolVector2Array( 19.9901, -3.9375, 27.3026, -4.9375, 44.5526, -5.4375, 49.9901, 0.8125, 46.2401, 4.6875, 27.1151, 4.5625, 19.8026, 3.625, 16.6776, -0.3125 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( -0.682396, 0.792252 )
+position = Vector2( -2.2449, 0.167253 )
 rotation = 0.785398
 scale = Vector2( 1.46956, 1.46956 )
 texture = ExtResource( 3 )
