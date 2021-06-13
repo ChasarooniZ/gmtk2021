@@ -5,6 +5,7 @@ extends Node2D
 # var a = 2
 puppet var puppet_motion = Vector2()
 puppet var puppet_rotation = 0
+puppet var puppet_color = Color()
 var motion = Vector2()
 var prev_bombing = false
 var bomb_index = 0
@@ -100,10 +101,12 @@ func _physics_process(_delta):
 
 		rset("puppet_motion", motion)
 		rset("puppet_rotation", rotation)
+		rset("puppet_color", $outline.get_color())
 
 	else:
 		motion = puppet_motion
 		rotation = puppet_rotation
+		$outline.set_color(puppet_color)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
