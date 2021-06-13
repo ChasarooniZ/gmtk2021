@@ -31,6 +31,7 @@ func boost():
 	boost_velocity += movement*charge_strength
 	cooldown = 200
 	charge_strength = 0
+	$Swish.play()
 	
 
 # Called when the node enters the scene tree for the first time.
