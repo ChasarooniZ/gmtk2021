@@ -26,40 +26,67 @@ __meta__ = {
 [node name="SpawnPoints" type="Node2D" parent="."]
 
 [node name="0" type="Position2D" parent="SpawnPoints"]
-position = Vector2( 72, 72 )
+position = Vector2( -200.943, -127.404 )
 
 [node name="1" type="Position2D" parent="SpawnPoints"]
-position = Vector2( 264, 216 )
+position = Vector2( 722.205, -158.767 )
 
 [node name="2" type="Position2D" parent="SpawnPoints"]
 position = Vector2( 72, 456 )
 
 [node name="3" type="Position2D" parent="SpawnPoints"]
-position = Vector2( 360, 552 )
+position = Vector2( 623.044, 820.701 )
 
 [node name="4" type="Position2D" parent="SpawnPoints"]
 position = Vector2( 840, 360 )
 
 [node name="5" type="Position2D" parent="SpawnPoints"]
-position = Vector2( 456, 264 )
+position = Vector2( 181.642, 217.331 )
 
 [node name="6" type="Position2D" parent="SpawnPoints"]
-position = Vector2( 696, 264 )
+position = Vector2( -349.104, 630.281 )
 
 [node name="7" type="Position2D" parent="SpawnPoints"]
-position = Vector2( 744, 456 )
+position = Vector2( 1417.17, 505.497 )
 
 [node name="8" type="Position2D" parent="SpawnPoints"]
-position = Vector2( 312, 456 )
+position = Vector2( 220.076, 789.754 )
 
 [node name="9" type="Position2D" parent="SpawnPoints"]
-position = Vector2( 696, 72 )
+position = Vector2( 1066.52, 711.225 )
 
 [node name="10" type="Position2D" parent="SpawnPoints"]
-position = Vector2( 504, 72 )
+position = Vector2( 369.65, -110.434 )
 
 [node name="11" type="Position2D" parent="SpawnPoints"]
 position = Vector2( 936, 72 )
+
+[node name="12" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 1268.34, 329.387 )
+
+[node name="13" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 463.653, 490.607 )
+
+[node name="14" type="Position2D" parent="SpawnPoints"]
+position = Vector2( -119.003, 688.597 )
+
+[node name="15" type="Position2D" parent="SpawnPoints"]
+position = Vector2( -114.761, 172.409 )
+
+[node name="16" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 1330.57, 176.652 )
+
+[node name="17" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 904.887, 559.904 )
+
+[node name="18" type="Position2D" parent="SpawnPoints"]
+position = Vector2( -365.077, 216.25 )
+
+[node name="19" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 1302.28, -106.191 )
+
+[node name="20" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 520.221, 207.765 )
 
 [node name="Rocks" type="Node2D" parent="."]
 
@@ -71,10 +98,10 @@ current = true
 zoom = Vector2( 2, 2 )
 
 [node name="Winner" type="Label" parent="."]
-margin_left = 331.116
-margin_top = 190.911
-margin_right = 690.116
-margin_bottom = 303.911
+margin_left = 253.334
+margin_top = 222.024
+margin_right = 612.334
+margin_bottom = 335.024
 size_flags_horizontal = 2
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
