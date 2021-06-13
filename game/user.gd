@@ -9,6 +9,7 @@ puppet var puppet_color = Color()
 var motion = Vector2()
 var prev_bombing = false
 var bomb_index = 0
+var mod = 1 # Modifier to be reduced when user is no logner the head user of a player
 
 var cooldown = -1
 var charge_strength = 0
@@ -52,7 +53,7 @@ func _physics_process(_delta):
 		else:
 			dist = 5
 		if (get_parent().get_child(0) != self):
-			dist = dist/2
+			mod = 1/2
 		if Input.is_action_pressed("move_left"):
 			motionNew += Vector2(-1, 0)
 		if Input.is_action_pressed("move_right"):
@@ -97,9 +98,9 @@ func _physics_process(_delta):
 		
 		if cooldown >= 0:
 			cooldown -= 1
-		motionNew = motionNew.normalized()*dist
+		motionNew = motionNew.normalized() * dist
 		motionNew += boost_velocity
-		motion = motionNew
+		motion = motionNew * mod
 
 		rset("puppet_motion", motion)
 		rset("puppet_rotation", rotation)
