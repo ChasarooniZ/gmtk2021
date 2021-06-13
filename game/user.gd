@@ -51,6 +51,8 @@ func _physics_process(_delta):
 			dist = dist/2
 		else:
 			dist = 5
+		if (get_parent().get_child(0) != self):
+			dist = dist/2
 		if Input.is_action_pressed("move_left"):
 			motionNew += Vector2(-1, 0)
 		if Input.is_action_pressed("move_right"):
