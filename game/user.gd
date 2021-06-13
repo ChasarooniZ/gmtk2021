@@ -66,14 +66,23 @@ func _physics_process(_delta):
 
 		if boost_velocity.length() > 0.5:
 			boost_velocity *= 0.8
+			$outline.set_color(ColorN("blue", 1))
 		elif boost_velocity.length() > 0:
 			boost_velocity = Vector2()
+			
+		if boost_velocity.length() == 0:
+			if cooldown > 0:
+				$outline.set_color(ColorN("gray", 1))
+			else:
+				$outline.set_color(ColorN("green", 1))
 
 		if boosting and cooldown <= 0:
 			if charge_strength <= charge_cap:
 				charge_strength += .5
+				$outline.set_color(ColorN("orange", 1))
 				#TODO Show it is charging
-			#else:
+			else:
+				$outline.set_color(ColorN("red", 1))
 				#TODO Show that it has maxed strength
 		elif !boosting and cooldown <= 0 and charge_strength > 0:
 			#TODO SHOW RELEASED
