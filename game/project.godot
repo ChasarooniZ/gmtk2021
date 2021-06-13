@@ -10,7 +10,7 @@ config_version=4
 
 [application]
 
-config/name="Roomba Fighter"
+config/name="Roomba Fighter VII"
 config/description="A multiplayer game where you fight a bunch of roombas and no-one is permanently eliminated.
 One of the players should press 'host', while the other
 should type in his address and press 'play'."
