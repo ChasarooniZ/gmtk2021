@@ -65,6 +65,8 @@ puppet func combine(_by_who, path):
 			killer.get_node("label").set_text(killerName + self.get_node("label").get_text())
 			usr.set_owner(killer.get_node("Users"))
 		queue_free()
+	if (killer.get_parent().get_child_count() == 2):
+		gamestate.end_game()
 	
 
 
