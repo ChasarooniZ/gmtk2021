@@ -39,5 +39,4 @@ position = Vector2( -0.0525551, 0 )
 color = Color( 0.501961, 0.0352941, 0.568627, 1 )
 polygon = PoolVector2Array( 17.0454, -3.16634, 24.29, -5.68618, 39.8815, -5.3712, 47.5985, -2.37888, 32.4795, 4.55069, 23.0301, 4.55069, 16.888, 3.29076 )
 
-[connection signal="area_shape_entered" from="Area2D" to="." method="_on_Area2D_area_shape_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
