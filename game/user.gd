@@ -71,11 +71,14 @@ func _physics_process(_delta):
 		elif boost_velocity.length() > 0:
 			boost_velocity = Vector2()
 			
+		if cooldown == 0:
+			$Swish.play()
+			$outline.set_color(ColorN("green", 1))
+		
 		if boost_velocity.length() == 0:
 			if cooldown > 0:
 				$outline.set_color(ColorN("gray", 1))
-			else:
-				$outline.set_color(ColorN("green", 1))
+				
 
 		if boosting and cooldown <= 0:
 			if charge_strength <= charge_cap:

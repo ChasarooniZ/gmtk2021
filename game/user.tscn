@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://user.gd" type="Script" id=1]
 [ext_resource path="res://swish.ogg" type="AudioStream" id=2]
 [ext_resource path="res://Weapon_07.png" type="Texture" id=3]
+[ext_resource path="res://phaserUp6.ogg" type="AudioStream" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 6.31614
@@ -43,5 +44,8 @@ offset = Vector2( 8, -24 )
 
 [node name="Swish" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
+
+[node name="Regain" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
