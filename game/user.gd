@@ -10,7 +10,7 @@ var motion = Vector2()
 var prev_bombing = false
 var bomb_index = 0
 
-var cooldown = 0
+var cooldown = -1
 var charge_strength = 0
 const charge_cap = 50
 var boost_velocity = Vector2()
@@ -73,7 +73,7 @@ func _physics_process(_delta):
 			boost_velocity = Vector2()
 			
 		if cooldown == 0:
-			$Swish.play()
+			$Regain.play()
 			$outline.set_color(ColorN("green", 1))
 		
 		if boost_velocity.length() == 0:
