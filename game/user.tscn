@@ -1,16 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://user.gd" type="Script" id=1]
 [ext_resource path="res://arm.png" type="Texture" id=2]
-[ext_resource path="res://outline.shader" type="Shader" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 6.31614
-
-[sub_resource type="ShaderMaterial" id=2]
-shader = ExtResource( 3 )
-shader_param/outline_width = 4.0
-shader_param/outline_color = null
 
 [node name="user" type="Node2D"]
 script = ExtResource( 1 )
@@ -41,7 +35,6 @@ shape = SubResource( 1 )
 one_way_collision = true
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-material = SubResource( 2 )
 position = Vector2( -0.0525551, 0 )
 color = Color( 0.501961, 0.0352941, 0.568627, 1 )
 polygon = PoolVector2Array( 17.0454, -3.16634, 24.29, -5.68618, 39.8815, -5.3712, 47.5985, -2.37888, 32.4795, 4.55069, 23.0301, 4.55069, 16.888, 3.29076 )
