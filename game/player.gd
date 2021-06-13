@@ -48,14 +48,13 @@ func _physics_process(_delta):
 	#if new_anim != current_anim:
 	#	current_anim = new_anim
 	#	get_node("anim").play(current_anim)
+	if (get_parent().get_child_count() == 1):
+			gamestate.end_game()
 
 	# FIXME: Use move_and_slide
 	move_and_slide(motion * MOTION_SPEED)
 	if not is_network_master():
-		puppet_pos = position # To avoid jitter\
-	else:
-		if (get_parent().get_child_count() == 1):
-			gamestate.end_game()
+		puppet_pos = position # To avoid jitter
 
 
 puppet func combine(_by_who, path):
