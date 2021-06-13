@@ -11,5 +11,5 @@ dest_files=[ "res://.import/swish.ogg-e17151066641155509f432d5a984cb16.oggstr" ]
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
