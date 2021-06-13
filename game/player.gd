@@ -32,22 +32,22 @@ func _physics_process(_delta):
 		position = puppet_pos
 		motion = puppet_motion
 
-	var new_anim = "standing"
-	if motion.y < 0:
-		new_anim = "walk_up"
-	elif motion.y > 0:
-		new_anim = "walk_down"
-	elif motion.x < 0:
-		new_anim = "walk_left"
-	elif motion.x > 0:
-		new_anim = "walk_right"
+	#var new_anim = "standing"
+	#if motion.y < 0:
+	#	new_anim = "walk_up"
+	#elif motion.y > 0:
+	#	new_anim = "walk_down"
+	#elif motion.x < 0:
+	#	new_anim = "walk_left"
+	#elif motion.x > 0:
+	#	new_anim = "walk_right"
 
-	if stunned:
-		new_anim = "stunned"
+	#if stunned:
+	#	new_anim = "stunned"
 
-	if new_anim != current_anim:
-		current_anim = new_anim
-		get_node("anim").play(current_anim)
+	#if new_anim != current_anim:
+	#	current_anim = new_anim
+	#	get_node("anim").play(current_anim)
 
 	# FIXME: Use move_and_slide
 	move_and_slide(motion * MOTION_SPEED)
