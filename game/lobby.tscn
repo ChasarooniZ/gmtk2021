@@ -189,12 +189,12 @@ __meta__ = {
 }
 
 [node name="Version" type="Label" parent="Label"]
-margin_left = 442.331
-margin_top = 517.219
-margin_right = 579.331
-margin_bottom = 531.219
+margin_left = 442.998
+margin_top = 512.547
+margin_right = 579.998
+margin_bottom = 526.547
 size_flags_horizontal = 2
-text = "Ver. 1.0"
+text = "Ver. 1.1"
 align = 1
 valign = 1
 __meta__ = {
