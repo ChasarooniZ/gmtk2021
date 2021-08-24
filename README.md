@@ -1,4 +1,4 @@
-<h1>Roomba Fighter VII</h1>
+# Roomba Fighter VII
 This game was made for the [GMTK 2021 Game Jam](https://itch.io/jam/gmtk-2021)
 I made this game with a friend of mine in 48 hours using [Godot](https://godotengine.org), which is a game engine built on python.
 
